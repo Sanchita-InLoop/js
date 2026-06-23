@@ -1,0 +1,9 @@
+.para { 
+    color: rgb(238, 9, 9);
+    text-align: center;
+    margin: 10px;
+}
+.newClass{
+    background-color: black;
+    height: 30px;
+}
