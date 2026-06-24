@@ -1,0 +1,57 @@
+#1. Element Selection Methods
+
+`document.getElementById('id_name')`:
+    Selects and returns a single element based on its unique ID. 
+`document.getElementsByClassName('class_name')`: 
+    Selects all elements containing the specified class. 
+    Property: It returns an `HTMLCollection` rather than a single element.
+`document.querySelector('selector')`: 
+    Selects and returns only the *first* element that matches the given CSS selector. 
+    It uses standard CSS selector syntax, meaning you use 
+    `#` for IDs, `.` for classes, or even attribute selectors like `input[type="password"]`.
+`document.querySelectorAll('selector')`: 
+    Selects *all* elements that match the given CSS selector. 
+    Property: It returns a `NodeList` containing all matching elements.
+    NodeList is similar to array but not actually same! 
+
+#2. Content Extraction & Manipulation
+
+`.textContent`: 
+    Extracts all the text content from an element. 
+    Property: It fetches *all* text, including content that is hidden from the user 
+            via CSS properties like `display: none.
+`.innerText`: 
+    Extracts only the text that is currently visible on the screen.
+`.innerHTML`: 
+    Extracts the exact HTML markup structure (including nested tags) along with the text content. 
+    This is especially useful when you need to read or set HTML tags dynamically.
+
+#3. Attribute Manipulation
+
+`.getAttribute('attribute_name')`: 
+    Reads and returns the value of a specific attribute (such as an 'id' or 'class') from an element. 
+`.setAttribute('attribute_name', 'value')`: 
+    Sets or updates an attribute on an element. 
+    Crucial Property: This method *overwrites* the existing attribute. 
+        If an element already has a class and you use `.setAttribute()` to add a new class,
+        the old class will be erased unless you explicitly include it in the new value string. 
+
+#4. Applying CSS Styles
+
+`.style`: 
+    A property used to inject inline CSS styles directly onto an element. 
+
+#5. DOM Collections and Iteration
+
+NodeList:
+    Returned by `querySelectorAll()`. 
+    Property: While it looks like an array, it is not a true array; 
+    however, it *does* have a native `.forEach()` method built into its prototype, 
+    allowing you to loop through elements directly. 
+    It does not have array methods like `.map()`.
+HTMLCollection: 
+    Returned by `getElementsByClassName()`. 
+    Property: This collection is more restrictive and does *not* support `.forEach()` or `.map()` loops directly. 
+`Array.from(collection)`:
+    A built-in JavaScript method used to convert an `HTMLCollection` or a `NodeList` into a standard JavaScript Array. 
+    Function: This unlocks all standard array methods (like `.forEach`, `.map`, `.push`) so you can easily manipulate collections of DOM elements.
